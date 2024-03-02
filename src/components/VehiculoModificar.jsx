@@ -1,16 +1,19 @@
-// import React, { useState } from 'react'
 import { useState } from 'react';
 import axios from "axios";
 
-export const Vehiculo = () => {
-
-  const url = 'http://localhost:4000/api/vehiculo';
+export const VehiculoModificar = () => {
   //Hooks
+  const [ID, setID] = useState();
   const [anio, setAnio] = useState();
   const [tipo_combustible, setTipo_combustible] = useState();
   const [kilometraje, setKilometraje] = useState();
   const [num_puertas, setNum_puertas] = useState();
   const [num_asientos, setNum_asientos] = useState();
+
+  const idHandler = (event) => {
+    const { name, value } = event.target;
+    setID(value);
+  }
 
   const anioHandler = (event) => {
     const { name, value } = event.target;
@@ -33,6 +36,8 @@ export const Vehiculo = () => {
     setNum_asientos(value);
   }
   const submitHandler = async() => {
+    const url = `http://localhost:4000/api/vehiculo/${ID}`;
+
     event.preventDefault();
     const dataSend = {
       modelo_id: 6, 
@@ -44,7 +49,7 @@ export const Vehiculo = () => {
     }
     // console.log(dataSend);
 
-    const result = await axios.post(url, dataSend);
+    const result = await axios.put(url, dataSend);
     const resultData = (await result).data;
 
     console.log(result);
@@ -57,7 +62,12 @@ export const Vehiculo = () => {
         <div className='d-flex justify-content-center align-items-center' style={{height: `100vh`}}>
           <form onSubmit={submitHandler}>
             <fieldset>
-              <legend>Vehículos</legend>
+              <legend>Modificar Vehículo</legend>
+              <div className="mb-3">
+                <label htmlFor="id" className="form-label">ID</label>
+                <input type="number" className="form-control" id="id" name="id" placeholder="0" onChange={idHandler}/>
+              </div>
+
               <div className="mb-3">
                 <label htmlFor="anio" className="form-label">Año</label>
                 <input type="number" className="form-control" id="anio" name="anio" placeholder="2010" onChange={anioHandler}/>
@@ -83,7 +93,7 @@ export const Vehiculo = () => {
                 <input type="number" className="form-control" id="num_asientos" name="num_asientos" placeholder="4" onChange={num_asientosHandler}/>
               </div>
 
-              <button type='submit' className='btn btn-primary'>Submit</button>
+              <button type='submit' className='btn btn-primary'>Modificar</button>
             </fieldset>
           </form>
         </div>

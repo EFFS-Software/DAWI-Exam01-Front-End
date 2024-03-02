@@ -21,7 +21,9 @@ export const NavBar = () => {
                 <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
                   <li><Link to='/marca' className="dropdown-item">Marca</Link></li>
                   <li><Link to='/modelo' className="dropdown-item">Modelo</Link></li>
-                  <li><Link to='/vehiculo' className="dropdown-item">Vehiculo</Link></li>
+                  <li><Link to='/vehiculo' className="dropdown-item">Agregar Vehiculo</Link></li>
+                  <li><Link to='/vehiculo_modificar' className="dropdown-item">Modificar Vehiculo</Link></li>
+                  <li><Link to='/vehiculo_borrar' className="dropdown-item">Borrar Vehiculo</Link></li>
                 </ul>
               </li>
 

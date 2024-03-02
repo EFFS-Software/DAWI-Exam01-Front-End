@@ -8,6 +8,8 @@ import { Home } from './components/Home'
 import { Marca } from './components/Marca'
 import { Modelo } from './components/Modelo'
 import { Vehiculo } from './components/Vehiculo'
+import { VehiculoBorrar } from './components/VehiculoBorrar'
+import { VehiculoModificar } from './components/VehiculoModificar'
 import { EspecialidadMecanico } from './components/EspecialidadMecanico'
 import { Mecanico } from './components/Mecanico'
 import { Mantenimiento } from './components/Mantenimiento'
@@ -24,6 +26,8 @@ function App() {
           <Route path='/marca' element={<Marca/>}></Route>
           <Route path='/modelo' element={<Modelo/>}></Route>
           <Route path='/vehiculo' element={<Vehiculo/>}></Route>
+          <Route path='/vehiculo_modificar' element={<VehiculoModificar/>}></Route>
+          <Route path='/vehiculo_borrar' element={<VehiculoBorrar/>}></Route>
           <Route path='/especialidad_mecanico' element={<EspecialidadMecanico/>}></Route>
           <Route path='/mecanico' element={<Mecanico/>}></Route>
           <Route path='/mantenimiento' element={<Mantenimiento/>}></Route>
